@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GIGABYTE서비스센터</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="GIGABYTE 노트북 / PC / 메인보드 / VGA 수리 접수센터" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <img src="gigabyte-logo.png" alt="GIGABYTE 로고" class="brand-logo" />
+        <div class="brand-text">
+          <strong>GIGABYTE서비스센터</strong>
+          <small>노트북 · PC · 메인보드 전문 수리</small>
+        </div>
+      </div>
+      <div class="cta">
+        <div class="telwrap">
+          <span class="tel-label">대표번호</span>
+          <a id="desktopTel" class="tel" href="tel:1544-6068">1544-6068</a>
+        </div>
+        <a class="btn outline" href="#request-form">상담하기</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-inner container">
+      <h1>GIGABYTE 노트북 / 데스크탑 전문 수리센터</h1>
+      <p class="sub">당일 점검 · 방문 접수 · 택배 수리 지원<br/>정품 부품 / 합리적인 비용으로 신속하게 해결합니다.</p>
+      <div class="hero-actions">
+        <a class="btn solid" href="#request-form">온라인 접수 바로가기</a>
+        <a class="btn telbtn" href="tel:1544-6068">1544-6068</a>
+        <a class="btn outline" href="#request-form">수리 접수하기</a>
+      </div>
+      <ul class="bullets">
+        <li>부팅 불가 / 전원 불량</li>
+        <li>액정 파손 / 화면꺼짐</li>
+        <li>발열 / 팬소음 / 써멀관리</li>
+        <li>데이터 복구 / 백업</li>
+      </ul>
+    </div>
+  </section>
+
+  <main class="container section">
+    <h2 id="request-form">온라인 접수 / 문의</h2>
+    <form id="serviceForm" class="card" method="POST" action="https://formsubmit.co/ajax/noteservice@outlook.kr">
+      <input type="hidden" name="_subject" value="GIGABYTE 서비스센터 온라인 접수" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="_captcha" value="false" />
+      <div class="grid">
+        <label>성함
+          <input name="성함" placeholder="홍길동" required />
+        </label>
+        <label>연락처
+          <input name="연락처" placeholder="010-1234-5678" required />
+        </label>
+        <label>지역/주소
+          <input name="지역/주소" placeholder="예) Gasan-dong 687, Geumcheon-gu, Seoul" />
+        </label>
+        <label>증상 분류
+          <select name="증상 분류">
+            <option>부팅 불가 / 전원 안 켜짐</option>
+            <option>액정/패널 파손</option>
+            <option>충전/배터리 문제</option>
+            <option>소음/발열/써멀관리</option>
+            <option>데이터 복구/백업</option>
+            <option>기타</option>
+          </select>
+        </label>
+        <label class="full">상세 증상 (선택)
+          <textarea name="상세 증상" rows="4" placeholder="예) 전원 버튼 반응 없음, 반복 재부팅, 로고에서 멈춤 등"></textarea>
+        </label>
+      </div>
+      <button class="btn solid xl" type="submit">접수 요청하기</button>
+      <p id="formNote" class="muted">제출하시면 접수 내용이 담당자 이메일(Outlook)로 바로 전달됩니다. 빠른 상담은 1544-6068로 전화 주세요.</p>
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden>접수되었습니다. 전문 엔지니어가 빠르게 연락드리겠습니다.</div>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="container footgrid">
+      <div>
+        <strong>GIGABYTE서비스센터</strong><br/>
+        대표번호 : <a href="tel:1544-6068">1544-6068</a><br/>
+        관리자 : 02-2600-3666<br/>
+        이메일 : <a href="mailto:noteservice@outlook.kr">noteservice@outlook.kr</a><br/>
+      </div>
+      <div>
+        사업자등록번호 : 703-03-03558 / 대표자 : 조기훈<br/>
+        © GIGABYTE서비스센터. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
