@@ -4,19 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="referrer" content="origin" />
-  <title>Dell서비스센터 | Dell 노트북 / 데스크탑 전문 수리</title>
+  <title>서비스센터 | 기가바이트 전문 수리센터</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- 상단 고정 헤더 -->
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
         <div class="brand-row">
-          <img src="dell-logo.png" alt="Dell 로고" class="brand-logo" />
-          <div class="brand-title">Dell서비스센터</div>
+          <img src="asus-logo.png" alt="GIGABYTE 로고" class="brand-logo" onerror="this.style.display='none';" />
+          <div class="brand-title">GIGABYTE서비스센터</div>
         </div>
-        <div class="brand-desc">Dell 노트북 / PC 전문 수리</div>
+        <div class="brand-desc">GIGABYTE 노트북 / PC 전문 수리</div>
       </div>
 
       <div class="call-box">
@@ -28,21 +29,27 @@
     </div>
   </header>
 
+  <!-- 히어로 섹션 (상단 큰 배너) -->
   <section class="hero">
     <div class="hero-overlay">
       <div class="container hero-inner">
 
+        <!-- 확장된 왼쪽 박스 -->
         <div class="hero-left-block">
+
+          <!-- 상단 헤드라인 -->
           <div class="hero-headline-row">
             <div class="headline-text">
-              Dell 노트북 / 데스크탑 전문 수리센터
+              GIGABYTE 노트북 / 데스크탑 전문 수리센터
             </div>
           </div>
 
-          <p class="hero-sub">
-            당일 점검 · 방문 접수 · 택배 수리 지원<br />
-            정품 부품 / 합리적인 비용으로 신속하게 해결합니다.
-          </p>
+          <div class="hero-text">
+            <p class="hero-sub">
+              <span class="hero-bullets">당일 점검 · 방문 접수 · 택배 수리 지원</span><br />
+              정품 부품 / 합리적인 비용으로 신속하게 해결합니다.
+            </p>
+          </div>
 
           <div class="hero-actions">
             <a class="hero-call" href="#request-form">온라인 접수 바로가기</a>
@@ -62,6 +69,7 @@
     </div>
   </section>
 
+  <!-- 주요 수리 서비스 섹션 -->
   <section class="services">
     <div class="container">
       <h2>주요 수리 서비스</h2>
@@ -73,30 +81,39 @@
         <div class="service-item">
           <div class="icon">💻</div>
           <div class="title">부팅 불가 / 전원 안 켜짐</div>
-          <div class="desc">전원 버튼 반응 없음, 반복 재부팅, 로고에서 멈춤 등.</div>
+          <div class="desc">
+            전원 버튼 반응 없음, 반복 재부팅, 로고에서 멈춤 등.
+          </div>
         </div>
 
         <div class="service-item">
           <div class="icon">🖥️</div>
           <div class="title">액정 / 패널 파손</div>
-          <div class="desc">화면 깨짐, 줄감, 화면 안 나옴. 노트북 패널 교체 가능.</div>
+          <div class="desc">
+            화면 깨짐, 줄감, 화면 안 나옴. 노트북 패널 교체 가능.
+          </div>
         </div>
 
         <div class="service-item">
-          <div class="icon">❄️</div>
+          <div class="icon">🔥</div>
           <div class="title">발열 / 팬소음</div>
-          <div class="desc">과열/소음, 프레임 드랍. 써멀 재도포/쿨링 청소.</div>
+          <div class="desc">
+            과열로 꺼짐, 소음 심함, 프레임 드랍. 써멀 재도포/쿨링 청소.
+          </div>
         </div>
 
         <div class="service-item">
           <div class="icon">⚡</div>
           <div class="title">충전/배터리 문제</div>
-          <div class="desc">충전 안 됨, 배터리 급방전, 잭 접촉 불량 등.</div>
+          <div class="desc">
+            충전 안 됨, 배터리 급방전, 잭 접촉 불량 등.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 온라인 접수 폼 -->
   <section class="request-section" id="request-form">
     <div class="container request-inner">
       <div class="request-info">
@@ -107,7 +124,7 @@
         </p>
 
         <ul class="request-highlights">
-          <li>Dell 노트북/PC 전용 진단</li>
+          <li>ASUS 노트북/PC 전용 진단</li>
           <li>정품 또는 동급 규격 부품 사용</li>
           <li>사전 안내 후 진행 (무단 수리 없음)</li>
         </ul>
@@ -119,6 +136,7 @@
       </div>
 
       <form class="request-form-card" id="serviceForm">
+
         <div class="form-head">온라인 접수 / 문의</div>
 
         <div class="form-group">
@@ -164,25 +182,26 @@
     </div>
   </section>
 
+  <!-- 푸터 -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-col">
-        <div class="footer-brand">Dell서비스센터</div>
-        <div class="footer-line">대표번호 : <a href="tel:15446068" class="footer-tel">1544-6068</a></div>
-        <div class="footer-line">관리자 : <a href="tel:0226003666" class="footer-tel">02-2600-3666</a></div>
-        <div class="footer-line">이메일 : <a href="mailto:noteservice@outlook.kr" class="footer-tel">noteservice@outlook.kr</a></div>
-        <div class="footer-line">주소 : 687 Gasan-dong, Geumcheon-gu, Seoul</div>
-        <div class="footer-line">영업시간 : 08:00 ~ 20:00</div>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-line">사업자등록번호 : 703-03-03558</div>
-        <div class="footer-line">대표자 : 조기훈</div>
-        <div class="footer-line">ⓒ Dell서비스센터. All Rights Reserved.</div>
-      </div>
+  <div class="container footer-inner">
+    <div class="footer-col footer-col-left">
+      <div class="footer-brand">ASUS서비스센터</div>
+      <div class="footer-line">대표번호 : <a href="tel:15446068" class="footer-tel">1544-6068</a></div>
+      <div class="footer-line">관리자 : <a href="tel:0226003666" class="footer-tel">02-2600-3666</a></div>
+      <div class="footer-line">이메일 : <a href="mailto:noteservice@outlook.kr" class="footer-tel">noteservice@outlook.kr</a></div>
+      <div class="footer-line">주소 : 687 Gasan-dong, Geumcheon-gu, Seoul</div>
+      <div class="footer-line">영업시간 : 08:00 ~ 20:00</div>
     </div>
-  </footer>
+    <div class="footer-col footer-col-right">
+      <div class="footer-line">사업자등록번호 : 703-03-03558</div>
+      <div class="footer-line">대표자 : 조기훈</div>
+      <div class="footer-line">ⓒ GIGABYTE서비스센터. All Rights Reserved.</div>
+    </div>
+  </div>
+</footer>
 
+  <!-- 접수 성공 안내 박스 (초기 숨김) -->
   <div class="submit-success" id="submitSuccess" style="display:none;">
     접수되었습니다. 전문 엔지니어가 빠르게 연락드리겠습니다.<br />
     급하신 경우 1544-6068 로 바로 문의 주시면 우선 상담 도와드립니다.
