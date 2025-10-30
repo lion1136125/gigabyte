@@ -1,30 +1,43 @@
-
+// PC에서 대표번호 클릭 무효 / 모바일만 통화
 (function(){
-  const tel = document.getElementById('desktopTel');
-  function isMobile(){return /iphone|ipad|ipod|android|windows phone/i.test(navigator.userAgent);}
-  if(tel && !isMobile()){ tel.addEventListener('click', e=>e.preventDefault()); }
+  const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+  const callBtn = document.getElementById('callBtn');
+  if (callBtn && !isMobile){
+    callBtn.addEventListener('click', (e)=>{ e.preventDefault(); });
+    callBtn.style.cursor = 'default';
+  }
 })();
 
+// FormSubmit AJAX
 const form = document.getElementById('serviceForm');
 const toast = document.getElementById('toast');
-const note = document.getElementById('formNote');
 
-if(form){
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const data = new FormData(form);
-    try{
-      const res = await fetch(form.action, {method:'POST', body:data, headers:{'Accept':'application/json'}});
-      if(res.ok){
-        form.reset();
-        if(toast) toast.hidden = false;
-        if(note) note.textContent = '접수되었습니다. 전문 엔지니어가 빠르게 연락드리겠습니다.';
-        setTimeout(()=>{ if(toast) toast.hidden = true; }, 5000);
-      }else{
-        alert('전송 실패: 잠시 후 다시 시도해 주세요.');
-      }
-    }catch(err){
-      alert('네트워크 오류가 발생했습니다.');
-    }
-  });
+function showToast(msg){
+  toast.textContent = msg;
+  toast.hidden = false;
+  setTimeout(()=> toast.hidden = true, 2600);
 }
+
+form?.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const data = new FormData(form);
+  // FormSubmit에 필요한 hidden 필드
+  data.append('_captcha', 'false');
+  data.append('_subject', '[기가바이트] 온라인 접수');
+  data.append('_template', 'table');
+
+  try{
+    const res = await fetch('https://formsubmit.co/ajax/noteservice@outlook.kr', {
+      method:'POST',
+      body: data
+    });
+    if(res.ok){
+      form.reset();
+      showToast('접수되었습니다. 전문 엔지니어가 빠르게 연락드리겠습니다.');
+    }else{
+      showToast('전송 실패. 잠시 후 다시 시도해주세요.');
+    }
+  }catch(err){
+    showToast('네트워크 오류. 잠시 후 다시 시도해주세요.');
+  }
+});
