@@ -4,66 +4,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!form) return;
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const name = document.getElementById("custName").value.trim();
     const phone = document.getElementById("custPhone").value.trim();
     const area = document.getElementById("custArea").value.trim();
-    const issueType = document.getElementById("issueType").value;
-    const issueDetail = document.getElementById("issueDetail").value.trim();
+    const issue = document.getElementById("issueType").value;
+    const detail = document.getElementById("issueDetail").value.trim();
 
     if (!name || !phone) {
       alert("성함과 연락처는 필수입니다.");
       return;
     }
 
-    try {
-      await fetch("https://formsubmit.co/ajax/noteservice@outlook.kr", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          "성함": name,
-          "연락처": phone,
-          "지역/주소": area,
-          "고장 증상": issueType,
-          "상세 설명": issueDetail,
-          "_subject": "홈페이지 신규 A/S 접수",
-          "_template": "table",
-          "_captcha": "false"
-        })
-      });
-    } catch (err) {
-      console.error("전송 오류", err);
-    }
-
+    // ⭐ 제출 즉시 팝업 표시
     if (successBox) {
       successBox.style.display = "block";
     }
 
+    // ⭐ 폼 초기화
     form.reset();
+
+    // ⭐ HP Google Apps Script로 백그라운드 전송
+    fetch("https://script.google.com/macros/s/AKfycbzmKg1_5pDS60vwyI9futdmysRkb7AKOZ2ZvvpxmJ16Bg9uXfjPxlAInI5jzVLN91PlJg/exec", {
+      method: "POST",
+      mode: "no-cors",   // ⛔ 절대 건들면 안 됨! (CORS 무력화)
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "성함": name,
+        "연락처": phone,
+        "지역/주소": area,
+        "고장 증상": issue,
+        "상세 설명": detail
+      })
+    }).catch((err) => {
+      console.error("전송 오류:", err);
+    });
   });
 });
-
-// ===== Desktop: disable tel: links so they do nothing on PC =====
-(function(){
-  function disableTelOnDesktop(){
-    if (window.matchMedia && window.matchMedia('(min-width: 960px)').matches){
-      document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
-        a.addEventListener('click', function(e){ e.preventDefault(); }, { passive:false });
-        a.style.cursor = 'default';
-      });
-    }
-  }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', disableTelOnDesktop);
-  } else {
-    disableTelOnDesktop();
-  }
-  // Re-run on resize in case viewport crosses breakpoint
-  window.addEventListener('resize', disableTelOnDesktop);
-})();
-
